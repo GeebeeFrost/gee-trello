@@ -3,6 +3,7 @@ import { BaseHttpService } from '../../services/base-http.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CurrentUser } from '../types/currentUser.interface';
 import { RegisterRequest } from '../types/registerRequest.interface';
+import { LoginRequest } from '../types/loginRequest.interface';
 
 @Injectable()
 export class AuthService extends BaseHttpService {
@@ -20,6 +21,11 @@ export class AuthService extends BaseHttpService {
   register(registerRequest: RegisterRequest): Observable<CurrentUser> {
     const url = this.buildUrl('users');
     return this.http.post<CurrentUser>(url, registerRequest);
+  }
+
+  login(loginRequest: LoginRequest): Observable<CurrentUser> {
+    const url = this.buildUrl('users/login');
+    return this.http.post<CurrentUser>(url, loginRequest);
   }
 
   setToken(currentUser: CurrentUser): void {

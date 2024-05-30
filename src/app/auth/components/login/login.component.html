@@ -7,7 +7,7 @@
     />
   </a>
   <div class="form-container">
-    <div class="login-header">Register</div>
+    <div class="login-header">Sign In</div>
     <div class="errors" *ngIf="errMsg">{{ errMsg }}</div>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <input
@@ -17,21 +17,16 @@
         class="login-input"
       />
       <input
-        formControlName="username"
-        placeholder="Username"
-        class="login-input"
-      />
-      <input
         formControlName="password"
         type="password"
         placeholder="Password"
         class="login-input"
       />
-      <button type="submit" class="login-submit-button">Register</button>
+      <button type="submit" class="login-submit-button">Sign In</button>
     </form>
     <div class="bottom-form-links">
-      Already have an account?
-      <a routerLink="/login" class="register-link">Sign in</a>
+      Don't have an account?
+      <a routerLink="/register" class="register-link">Register</a>
     </div>
   </div>
 </div>
